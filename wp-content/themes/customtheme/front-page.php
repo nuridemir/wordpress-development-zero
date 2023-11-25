@@ -6,7 +6,4 @@
     A simple primary alert—check it out!
 </div>
 
-
-
-
 <?php get_footer() ?>

@@ -11,7 +11,7 @@ if ( ! function_exists( 'customtheme_setup' ) ) {
 	 */
 
 	function customtheme_setup() {
-    /**
+    /**z
 	 * Make theme available for translation.
 	 * Translations can be placed in the /languages/ directory.
 	 */
@@ -51,7 +51,6 @@ if ( ! function_exists( 'customtheme_setup' ) ) {
 		 * Enable support for the following post formats:
 		 * aside, gallery, quote, image, and video
 		 */
-		add_theme_support( 'post-formats', array( 'aside', 'gallery', 'quote', 'image', 'video' ) );
 
 		add_theme_support(
 			'html5',
@@ -97,21 +96,29 @@ if ( ! function_exists( 'customtheme_setup' ) ) {
 		add_filter( 'rss_widget_feed_link', '__return_empty_string' );
 
 	}
-} // customtheme_setup
+
+
+
+
+
+    function customtheme_scripts() {
+        // Stil dosyalarını enqueue et
+        wp_enqueue_style('bootstrap', get_template_directory_uri() . '/assets/css/bootstrap.min.css');
+        wp_enqueue_style('custom-style', get_template_directory_uri() . '/assets/css/custom.css');
+
+        // Script dosyalarını enqueue et
+        wp_enqueue_script('jquery', get_theme_file_uri('/assets/js/jquery-3.4.1.slim.min.js'));
+        wp_enqueue_script('bootstrap', get_theme_file_uri('/assets/js/bootstrap.bundle.min.js'));
+        wp_enqueue_script('custom-script', get_theme_file_uri('/assets/js/custom.js'));
+
+    }
+
+    add_action('wp_enqueue_scripts', 'customtheme_scripts');
+
+
+
+}
 add_action( 'after_setup_theme', 'customtheme_setup' );
 
 
 
-function customtheme_scripts() {
-    // Stil dosyalarını enqueue et
-    wp_enqueue_style('bootstrap', get_template_directory_uri() . '/assets/css/bootstrap.min.css');
-    wp_enqueue_style('custom-style', get_template_directory_uri() . '/assets/css/custom.css');
-
-    // Script dosyalarını enqueue et
-    wp_enqueue_script('jquery', get_theme_file_uri('/assets/js/jquery-3.4.1.slim.min.js'));
-    wp_enqueue_script('bootstrap', get_theme_file_uri('/assets/js/bootstrap.bundle.min.js'));
-    wp_enqueue_script('custom-script', get_theme_file_uri('/assets/js/custom.js'));
-
-}
-
-add_action('wp_enqueue_scripts', 'customtheme_scripts');

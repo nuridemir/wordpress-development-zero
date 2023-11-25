@@ -4,11 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Custom Theme</title>
+    <title><?= get_the_title(); ?></title>
     <?php wp_head(); ?>
 </head>
 
-<body style="width:100%; min-height:100%;" data-bs-theme="light">
+<body style="width:100%; min-height:100%;" data-bs-theme="dark">
 
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container">
